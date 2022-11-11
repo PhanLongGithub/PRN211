@@ -1,0 +1,81 @@
+
+USE FoodieDB;
+
+CREATE TABLE Categories(
+  CategoryID INT IDENTITY(1,1) PRIMARY KEY,
+  CategoryName NVARCHAR(100) NOT NULL,
+  ImageURL VARCHAR(MAX),
+  IsActive BIT,
+  CreatedDate DATETIME
+);
+
+CREATE TABLE Products(
+  ProductID INT IDENTITY(1,1) PRIMARY KEY,
+  ProductName NVARCHAR(100) NOT NULL,
+  Description VARCHAR(MAX),
+  Price DECIMAL(18,2),
+  Quantity INT,
+  ImageURL VARCHAR(MAX),
+  CategoryID INT NOT NULL,
+  IsActive BIT,
+  CreatedDate DATETIME,
+  FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE Users(
+  UserID INT IDENTITY(1,1) PRIMARY KEY,
+  FullName VARCHAR(100),
+  Username VARCHAR(100) UNIQUE,
+  Password VARCHAR(100),
+  Mobile VARCHAR(100),
+  Email VARCHAR(100) UNIQUE,
+  Address VARCHAR(MAX),
+  PostCode VARCHAR(100),
+  ImageURL VARCHAR(MAX),
+  CreatedDate DATETIME
+);
+
+CREATE TABLE CARTS(
+  CartID INT IDENTITY(1,1) PRIMARY KEY,
+  ProductID INT,
+  Quantity INT,
+  UserID INT,
+  FOREIGN KEY (ProductID) REFERENCES Products(ProductID) ON DELETE CASCADE,
+  FOREIGN KEY (UserID) REFERENCES Users(UserID) ON DELETE CASCADE
+);
+
+CREATE TABLE Contact(
+  ContactID INT IDENTITY(1,1) PRIMARY KEY,
+  ContactName VARCHAR(100),
+  Email VARCHAR(100),
+  Subject VARCHAR(200),
+  Message VARCHAR(MAX),
+  CreatedDate DATETIME
+);
+
+CREATE TABLE Payment(
+  PaymentID INT IDENTITY(1,1) PRIMARY KEY,
+  Name VARCHAR(100),
+  CardNo VARCHAR(100),
+  ExpiryDate VARCHAR(100),
+  CvvNo INT,
+  Address VARCHAR(MAX),
+  PaymentMode VARCHAR(100)
+);
+
+CREATE TABLE Orders(
+  OrderDetailsID INT IDENTITY(1,1) PRIMARY KEY,
+  OrderNo VARCHAR(MAX),
+  ProductID INT NOT NULL,
+  Quantity INT,
+  UserID INT NOT NULL,
+  Status VARCHAR(100),
+  PaymentID INT NOT NULL,
+  OrderDate DATETIME,
+  FOREIGN KEY (ProductID) REFERENCES Products(ProductID) ON DELETE CASCADE,
+  FOREIGN KEY (UserID) REFERENCES Users(UserID) ON DELETE CASCADE,
+  FOREIGN KEY (PaymentID) REFERENCES Payment(PaymentID) ON DELETE CASCADE
+);
+
+use master;
+drop database FoodieDB;
