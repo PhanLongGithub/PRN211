@@ -10,9 +10,9 @@
     }
 </style>
 <h1>Order Food</h1>
-<button><a href="/Home/Index">Homepage</a></button>
+<button><a href="/Home/Index">Homepage</a></button><br />
 
-<a href="/Order/ListOfOrder">Cart [ @ViewBag.numberInCart ]</a>
+<a href="/Order/ListOfOrder/1">Cart [ @ViewBag.numberInCart ]</a>
 
 <div>
     <table>
@@ -29,7 +29,7 @@
                     <td>@p.Description</td>
                 </tr>
                 <tr>
-                    <td>@p.Price</td>
+                    <td>Price: @p.Price</td>
                 </tr>
                 <tr>
                     <td><button><a href="/Product/AddToCart/@p.ProductId">Add to Cart</a></button></td>

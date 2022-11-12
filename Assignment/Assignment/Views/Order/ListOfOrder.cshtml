@@ -1,0 +1,37 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using Assignment.Models
+<style>
+</style>
+<h1>List of Order</h1>
+<form action="/Order/CreateOrder" method="post">
+    <table>
+        <tbody>
+            @foreach (Cart c in ViewBag.cart)
+            {
+                <tr>
+                    <td>@c.Product.ProductName</td>
+                    <td><img src="@c.Product.ImageUrl" alt="Product Image"/></td>
+                    <td>@c.Product.Description</td>
+                </tr>
+                <tr>
+                    <td>Price: @c.Product.Price</td>
+                    <td>Quantity: @c.Quantity</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <input type="hidden" name="userID" value="@ViewBag.userID" />
+    <h2>Total Price: @ViewBag.totalPrice</h2>
+    <label for="pay">Payment Method</label>
+    <select id="pay" name="pay">
+        @foreach (Payment p in ViewBag.payments)
+        {
+            <option value="@p.PaymentId">@p.PaymentMode</option>
+        }
+    </select>
+    <button name="action" value="Save">Save</button>
+</form>

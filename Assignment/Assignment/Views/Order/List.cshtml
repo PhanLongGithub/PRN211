@@ -1,0 +1,41 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using Assignment.Models
+<style>
+    h1 {
+        text-align: center;
+    }
+
+    table tr td {
+        border: #000 solid 5px;
+    }
+</style>
+<h1>All Order</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>No</th>
+            <th>Payment</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Order o in ViewBag.orders)
+        {
+            <tr>
+                <td>@o.OrderDetailsId</td>
+                <td>@o.OrderNo</td>
+                <td>@o.PaymentId</td>
+                <td>@o.ProductId</td>
+                <td>@o.Quantity</td>
+                <td>@o.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>
