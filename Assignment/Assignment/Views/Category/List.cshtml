@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using Assignment.Models
+<style>
+    h1{
+        text-align:center;
+    }
+    table tr td{
+        border:#000 solid 5px;
+    }
+    img{
+        width:100px;
+    }
+</style>
+<h1>Categories</h1>
+<button><a href="/Home/Index">Homepage</a></button>
+<form>
+    <table>
+        <tbody>
+            @foreach (Category c in ViewBag.categories)
+            {
+                <tr>
+                    <td>@c.CategoryId</td>
+                    <td>@c.CategoryName</td>
+                    <td><img src="@c.ImageUrl" alt="Category Image" /></td>
+                    <td>@c.IsActive</td>
+                    <td><button><a href="/Category/Edit/@c.CategoryId">Edit</a></button></td>
+                    <td><button><a href="/Category/Delete/@c.CategoryId">Delete</a></button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>

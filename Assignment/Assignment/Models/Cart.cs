@@ -12,5 +12,12 @@ namespace Assignment.Models
 
         public virtual Product? Product { get; set; }
         public virtual User? User { get; set; }
+
+        public Cart(int? productId, int? quantity, int? userId)
+        {
+            ProductId = productId;
+            Quantity = quantity;
+            UserId = userId;
+        }
     }
 }

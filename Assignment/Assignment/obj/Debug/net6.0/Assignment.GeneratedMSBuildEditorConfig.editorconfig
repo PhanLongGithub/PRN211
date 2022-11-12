@@ -15,6 +15,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Project\FPT\SE1627-NET_PRN\Assignment\PRN211\Assignment\Assignment
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Project/FPT/SE1627-NET_PRN/Assignment/PRN211/Assignment/Assignment/Views/Category/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/FPT/SE1627-NET_PRN/Assignment/PRN211/Assignment/Assignment/Views/Category/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Project/FPT/SE1627-NET_PRN/Assignment/PRN211/Assignment/Assignment/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/FPT/SE1627-NET_PRN/Assignment/PRN211/Assignment/Assignment/Views/Product/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

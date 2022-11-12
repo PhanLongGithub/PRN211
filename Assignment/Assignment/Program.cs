@@ -15,6 +15,15 @@ internal class Program
             pattern: "/{controller=Home}/{action=Index}"
             );
 
+        app.MapControllerRoute(
+            name: "default",
+            pattern: "/{controller=Category}/{action=Delete}/{Id=0}"
+            );
+
+        app.MapControllerRoute(
+            name: "default",
+            pattern: "/{controller=Category}/{action=List}/{Id=0}/{Page=1}"
+            );
         app.Run();
     }
 }

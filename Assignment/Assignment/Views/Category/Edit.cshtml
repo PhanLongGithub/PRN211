@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using Assignment.Models
+@model Category
+<style>
+    p{
+        display:inline-block;
+    }
+</style>
+<h1>Edit Categories</h1>
+<div>
+    @if(Model == null){
+        <h2>Error</h2>
+    }
+    else{
+        <div>
+            <form action="/Category/DoEdit" method="post">
+                <input name="category.CategoryId" type="hidden" value="@Model.CategoryId"/><br>
+                <label for="CategoryName">Category Name</label>
+                <input id="CategoryName" name="category.CategoryName" type="text" value="@Model.CategoryName" /><br>
+
+                <label for="ImageUrl">Image Url</label>
+                <input id="ImageUrl" name="category.ImageUrl" type="file" value="@Model.ImageUrl" /><br>
+
+                <label for="IsActive">Is Active</label>
+                @if(Model.IsActive == true){
+                    <input name = "category.IsActive" type = "radio" value = "@Model.IsActive" checked/><p>Yes</p>
+                    <input name="category.IsActive" type="radio" value="@Model.IsActive" />
+                    <p>No</p>
+                }
+                else{
+                    <input name="category.IsActive" type="radio" value="@Model.IsActive"/>
+                    <p>Yes</p>
+                    <input name = "category.IsActive" type = "radio" value = "@Model.IsActive" checked/>
+                    <p>No</p>
+                }
+                <input name="category.IsActive" type="text" value="@Model.IsActive" /><br>
+                <button name="action" value="Save">Save</button>
+                <button name="action" value="Cancel">Cancel</button>
+            </form>
+        </div>
+    }
+</div>
